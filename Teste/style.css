@@ -1,0 +1,48 @@
+#entradaSenha {
+    margin: 20px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+#medidorPoder {
+    margin-top: 10px;
+    height: 20px;
+    width: 0;
+    background-color: gray;
+    transition: width 0.3s, background-color 0.3s;
+}
+
+#requisitos {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.requisito {
+    margin-right: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.vermelho {
+    color: red;
+    transition: color 0.3s;
+}
+
+.verde {
+    color: green;
+    transition: color 0.3s;
+}
+
+#textoPoder {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#mostrarSenha {
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #4285F4;
+  }

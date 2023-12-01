@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NetGhost</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="img/icone.png">
+    <script src="https://kit.fontawesome.com/65d3d9eac0.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <header>
+        <img src="img/logo.png" alt="logo">
+    </header>
+
+    <section id="faca-cadastro">
+        <div class="portal">
+            <h1>Bem-vindo ao Portal Ghostface da Segurança!</h1>
+            <p>Sua senha expirou! Crie uma nova senha para sua conta.</p>
+        </div>
+        <div class="imagem">
+            <img src="img/icon.png" alt="pânico">
+        </div>
+    </section>
+
+    <section id="senha">
+        <div class="input">
+            <input type="password" id="entradaSenha" placeholder="Nova senha">
+            <span id="mostrarSenha"><i class="fa-solid fa-eye" style="color: #c7c7c7;"></i></span>
+        </div>
+
+        <div id="medidorPoder"></div>
+
+        <div id="requisitos">
+            <div id="requisitoComprimento" class="requisito">Comprimento</div>
+            <div id="requisitoMinuscula" class="requisito">Letra minúscula</div>
+            <div id="requisitoMaiuscula" class="requisito">Letra maiúscula</div>
+            <div id="requisitoNumero" class="requisito">Número</div>
+            <div id="requisitoSimbolo" class="requisito">Símbolo</div>
+        </div>
+
+
+        <div id="textoPoder"></div>
+    </section>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
