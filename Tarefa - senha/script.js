@@ -82,6 +82,9 @@ function verificarPoder(senha) {
         requisitoSimbolo.classList.add('vermelho');
     }
 
+    medidorPoder.style.width = Poder + '%';
+    medidorPoder.style.backgroundColor = cor;
+
     return Math.min(100, Poder);
 }
 
