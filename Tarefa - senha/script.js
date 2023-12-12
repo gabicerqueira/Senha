@@ -10,7 +10,7 @@ var mostrarSenha = document.getElementById('mostrarSenha');
 entradaSenha.addEventListener('input', function () {
     var senha = entradaSenha.value;
     var Poder = verificarPoder(senha);
-    var cor = Poder < 30 ? 'red' : Poder < 60 ? 'yellow' : 'green';
+    var cor = Poder < 31 ? 'red' : Poder < 75 ? 'yellow' : 'green';
 
     //Transições css
     medidorPoder.style.width = Poder + '%';
@@ -25,6 +25,8 @@ mostrarSenha.addEventListener('click', function () {
         '<i class="fa-solid fa-eye" style="color: #c7c7c7;"></i>' :
         '<i class="fa-solid fa-eye-slash" style="color: #c7c7c7;"></i>';
 });
+
+var textoPoder = document.getElementById('textoPoder');
 
 function verificarPoder(senha) {
     var comprimentoMinimo = 8;
@@ -90,9 +92,30 @@ function verificarPoder(senha) {
     // Atualiza a posição da imagem do pânico
     imgPanico.style.left = posicao + '%';
 
+    var textoPoder = document.getElementById('textoPoder');
+
+    // Atualiza o texto dinâmico
+    var texto;
+    if (Poder < 16) {
+        texto = 'O pânico te achou!';
+    } else if (Poder < 31) {
+        texto = 'O pânico está perto de você!';
+    } else if (Poder < 75) {
+        texto = 'O pânico está te procurando!';
+    } else {
+        texto = 'O pânico está longe de você!';
+    }
+
+    // Adiciona a classe 'texto' ao elemento
+    textoPoder.textContent = texto;
+    textoPoder.style.fontFamily = 'Mont';
+    textoPoder.style.fontSize = '30px';
+    textoPoder.style.fontWeight = '700';
+    textoPoder.style.marginTop = '20px'
+
     return Math.min(100, Poder);
 }
 
 function atualizar(senha) {
-    verificarPoder(senha);
+    var Poder = verificarPoder(senha);
 } 

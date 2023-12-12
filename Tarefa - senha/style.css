@@ -152,10 +152,15 @@ input{
     align-items: center;
 }
 
+.texto{
+    font: 20px 'Mont', sans-serif;
+}
+
 .requisito {
-    margin-right: 10px;
-    font-size: 14px;
+    margin-right: 40px;
     font-weight: bold;
+    font: 20px 'Mont', sans-serif;
+    color: red;
 }
 
 .vermelho {
