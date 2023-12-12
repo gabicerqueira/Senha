@@ -1,4 +1,3 @@
-var entradaSenha = document.getElementById('entradaSenha');
 var medidorPoder = document.getElementById('medidorPoder');
 var requisitoComprimento = document.getElementById('requisitoComprimento');
 var requisitoMinuscula = document.getElementById('requisitoMinuscula');
@@ -11,13 +10,12 @@ var mostrarSenha = document.getElementById('mostrarSenha');
 entradaSenha.addEventListener('input', function () {
     var senha = entradaSenha.value;
     var Poder = verificarPoder(senha);
-    var cor = Poder < 50 ? 'red' : Poder < 80 ? 'yellow' : 'green';
+    var cor = Poder < 30 ? 'red' : Poder < 60 ? 'yellow' : 'green';
 
     //Transições css
     medidorPoder.style.width = Poder + '%';
     medidorPoder.style.backgroundColor = cor;
 
-    textoPoder.textContent = 'Força da Senha: ' + Poder + '%'; //Atualiza o texto
     atualizar(senha); //Atualiza os indicadores de requisitos
 });
 
@@ -38,7 +36,7 @@ function verificarPoder(senha) {
     var Poder = 0; //Pontos com base nas regras
 
     if (senha.length >= comprimentoMinimo) {
-        Poder += 25;
+        Poder += 15;
         requisitoComprimento.classList.remove('vermelho');
         requisitoComprimento.classList.add('verde');
     } else {
@@ -47,7 +45,7 @@ function verificarPoder(senha) {
     }
 
     if (possuiMinuscula) {
-        Poder += 25;
+        Poder += 15;
         requisitoMinuscula.classList.remove('vermelho');
         requisitoMinuscula.classList.add('verde');
     } else {
@@ -56,7 +54,7 @@ function verificarPoder(senha) {
     }
 
     if (possuiMaiuscula) {
-        Poder += 25;
+        Poder += 15;
         requisitoMaiuscula.classList.remove('vermelho');
         requisitoMaiuscula.classList.add('verde');
     } else {
@@ -65,7 +63,7 @@ function verificarPoder(senha) {
     }
 
     if (possuiNumeros) {
-        Poder += 25;
+        Poder += 15;
         requisitoNumero.classList.remove('vermelho');
         requisitoNumero.classList.add('verde');
     } else {
@@ -74,7 +72,7 @@ function verificarPoder(senha) {
     }
 
     if (possuiSimbolo) {
-        Poder += 25;
+        Poder += 15;
         requisitoSimbolo.classList.remove('vermelho');
         requisitoSimbolo.classList.add('verde');
     } else {
@@ -82,12 +80,19 @@ function verificarPoder(senha) {
         requisitoSimbolo.classList.add('vermelho');
     }
 
-    medidorPoder.style.width = Poder + '%';
-    medidorPoder.style.backgroundColor = cor;
+    // Atualiza a largura da barra de poder
+    var largura = Poder + '%';
+    medidorPoder.style.width = largura;
+
+    // Calcula a posição da imagem do pânico
+    var posicao = Poder;
+
+    // Atualiza a posição da imagem do pânico
+    imgPanico.style.left = posicao + '%';
 
     return Math.min(100, Poder);
 }
 
 function atualizar(senha) {
     verificarPoder(senha);
-}
+} 
